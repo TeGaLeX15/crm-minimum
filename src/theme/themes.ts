@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+// src/theme/themes.ts
 export interface Theme {
   id: string;
   name: string;
@@ -93,32 +92,3 @@ export const THEMES: Theme[] = [
     },
   },
 ];
-
-export function useTheme() {
-  const stored = localStorage.getItem('crm_theme');
-  const initialTheme = THEMES.find((t) => t.id === stored) || THEMES[0];
-
-  const [currentTheme, setCurrentTheme] = useState<Theme>(initialTheme);
-
-  const applyTheme = (theme: Theme) => {
-    const root = document.documentElement;
-    root.style.setProperty('--theme-primary', theme.colors.primary);
-    root.style.setProperty('--theme-primary-light', theme.colors.primaryLight);
-    root.style.setProperty('--theme-primary-dark', theme.colors.primaryDark);
-    root.style.setProperty('--theme-accent', theme.colors.accent);
-  };
-
-  // применяем тему сразу при инициализации
-  applyTheme(initialTheme);
-
-  const changeTheme = (themeId: string) => {
-    const theme = THEMES.find((t) => t.id === themeId);
-    if (theme) {
-      setCurrentTheme(theme);
-      applyTheme(theme);
-      localStorage.setItem('crm_theme', themeId);
-    }
-  };
-
-  return { currentTheme, changeTheme, themes: THEMES };
-}

@@ -10,23 +10,8 @@ import { useAuth } from '../../auth/useAuth';
 import { useLeads } from '../../hooks/useLeads';
 import { useReminders } from '../../hooks/useReminders';
 import { useActivity } from '../../hooks/useActivity';
-import { useTheme } from '../../hooks/useTheme';
+import { useTheme } from '../../theme/useTheme';
 import type { Lead } from '../../types';
-
-export interface Reminder {
-  id: string;
-  leadId: string;
-  text: string;
-  completed: boolean;
-  date: string;
-}
-
-export interface Activity {
-  id: string;
-  leadId: string;
-  description: string;
-  timestamp: string;
-}
 
 export default function DashboardPage() {
   const { user, logout } = useAuth(); // <- исправлено

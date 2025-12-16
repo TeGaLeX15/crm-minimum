@@ -1,5 +1,9 @@
 export type LeadStatus = 'new' | 'contacted' | 'qualified' | 'proposal' | 'won';
 
+export interface User {
+  email: string;
+}
+
 export interface Lead {
   id: string;
   name: string;

@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { AuthContext, type AuthContextType } from './AuthContext'
-
-interface User {
-  email: string
-}
+import type { User } from '../types'
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {

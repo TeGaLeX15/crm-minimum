@@ -1,5 +1,5 @@
 import { X, Check } from 'lucide-react';
-import type { Theme } from '../../hooks/useTheme';
+import type { Theme } from '../../theme/themes';
 
 interface ThemeSelectorProps {
   themes: Theme[];

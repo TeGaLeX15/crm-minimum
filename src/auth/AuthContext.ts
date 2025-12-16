@@ -1,8 +1,5 @@
 import { createContext } from 'react'
-
-interface User {
-  email: string
-}
+import type { User } from '../types'
 
 export interface AuthContextType {
   user: User | null
