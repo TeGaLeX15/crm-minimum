@@ -6,7 +6,7 @@ import { ReminderPanel } from '../../components/Dashboard/ReminderPanel';
 import { ActivityHistory } from '../../components/Dashboard/ActivityHistory';
 import { Header } from '../../components/Dashboard/Header';
 import { ThemeSelector } from '../../components/Dashboard/ThemeSelector';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../auth/useAuth';
 import { useLeads } from '../../hooks/useLeads';
 import { useReminders } from '../../hooks/useReminders';
 import { useActivity } from '../../hooks/useActivity';
