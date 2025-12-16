@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# OrbixCRM Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**OrbixCRM** — это одностраничное веб-приложение (SPA) для управления продажами и лидами. В проекте реализован Frontend на React + TypeScript, с маршрутизацией на страницы авторизации и дашборда, включая канбан-доску для лидов.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔹 Содержание
 
-## React Compiler
+- [Описание](#описание)
+- [Технологии](#технологии)
+- [Установка](#установка)
+- [Запуск](#запуск)
+- [Структура проекта](#структура-проекта)
+- [Коммиты и ветки](#коммиты-и-ветки)
+- [Лицензия](#лицензия)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📝 Описание
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Фронтенд OrbixCRM предоставляет пользователю:  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Авторизация пользователей (с валидацией и сохранением email)
+- Показ/скрытие пароля в поле ввода
+- Дашборд с канбан-доской и управлением лидами
+- Валидацию email и пароля на клиенте
+- Адаптивный интерфейс и базовый UX/UI
+- Интерактивные формы и компоненты
+- Сохранение данных локально для демо
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠 Технологии
+
+- SPA на React + TypeScript
+- TailwindCSS / глобальные CSS
+- Lucide Icons
+- localStorage для сохранения данных пользователя
+- Git/GitHub для версионного контроля
+- Vite для сборки и разработки
+- ESLint + Prettier для качества кода
+- React Router для маршрутизации
+- React Hooks для управления состоянием
+
+---
+
+## 📦 Установка
+
+Склонируй репозиторий:
+
+```bash
+git clone https://github.com/TeGaLeX15/crm-minimum.git
+cd crm-minimum
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Установи зависимости:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# или
+yarn install
 ```
+
+---
+
+## 🚀 Запуск
+
+Для разработки:
+
+```bash
+npm run dev
+# или
+yarn dev
+```
+
+Для сборки:
+
+```bash
+npm run build
+# или
+yarn build
+```
+
+---
+
+## 🗂 Структура проекта
+
+```
+src/
+├─ app/            # Настройки роутинга
+├─ assets/         # Статические ресурсы (изображения, шрифты)
+├─ auth/           # Логика авторизации
+├─ components/     # Компоненты страниц
+│  └─ Dashboard/   # Компоненты дашборда
+│  └─ UI/          # Повторно используемые UI-компоненты
+├─ hooks/          # Кастомные хуки
+├─ pages/          # Страницы приложения
+│  └─ Dashboard/   # Экран дашборда
+│  └─ Login/       # Экран авторизации
+├─ theme/          # Тема и стилизация
+├─ types/          # Типы TS
+├─ globals.css     # Глобальные стили
+└─ App.tsx         # Точка входа
+```
+
+---
+
+## 🌿 Коммиты и ветки
+
+- **main** — стабильная рабочая версия
+
+**Формат коммита:**
+
+```
+<компонент>: <описание>
+```
+
+---
+
+## 📄 Лицензия
+
+MIT License © 2025 TeGaLeX15
