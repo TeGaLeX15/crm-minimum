@@ -1,31 +1,35 @@
-import { useEffect, useState } from 'react';
-import { LogIn, Eye, EyeOff } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { LogIn, Eye, EyeOff } from "lucide-react";
 
 interface AuthScreenProps {
   onLogin: (email: string, password: string) => boolean;
 }
 
 export function AuthScreen({ onLogin }: AuthScreenProps) {
-  const [email, setEmail] = useState(() => localStorage.getItem('saved_email') || '');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [email, setEmail] = useState(
+    () => localStorage.getItem("saved_email") || ""
+  );
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {}
+  );
   const [showPassword, setShowPassword] = useState(false);
 
   const isFormValid = email && password && !errors.email && !errors.password;
 
   useEffect(() => {
-    document.getElementById('email')?.focus();
+    document.getElementById("email")?.focus();
   }, []);
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
 
     if (!value) {
-      setErrors(prev => ({ ...prev, email: 'Email обязателен' }));
+      setErrors((prev) => ({ ...prev, email: "Email обязателен" }));
     } else if (!/\S+@\S+\.\S+/.test(value)) {
-      setErrors(prev => ({ ...prev, email: 'Введите корректный email' }));
+      setErrors((prev) => ({ ...prev, email: "Введите корректный email" }));
     } else {
-      setErrors(prev => ({ ...prev, email: undefined }));
+      setErrors((prev) => ({ ...prev, email: undefined }));
     }
   };
 
@@ -33,11 +37,14 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
     setPassword(value);
 
     if (!value) {
-      setErrors(prev => ({ ...prev, password: 'Пароль обязателен' }));
+      setErrors((prev) => ({ ...prev, password: "Пароль обязателен" }));
     } else if (value.length < 6) {
-      setErrors(prev => ({ ...prev, password: 'Пароль должен быть минимум 6 символов' }));
+      setErrors((prev) => ({
+        ...prev,
+        password: "Пароль должен быть минимум 6 символов",
+      }));
     } else {
-      setErrors(prev => ({ ...prev, password: undefined }));
+      setErrors((prev) => ({ ...prev, password: undefined }));
     }
   };
 
@@ -47,7 +54,7 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
 
     const success = onLogin(email, password);
     if (success) {
-      localStorage.setItem('saved_email', email);
+      localStorage.setItem("saved_email", email);
     }
   };
 
@@ -60,7 +67,7 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
               <LogIn className="w-6 h-6 text-white" />
             </div>
           </div>
-          
+
           <h1 className="text-center mb-8">Вход в OrbixCRM</h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -75,12 +82,14 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
                 onChange={(e) => handleEmailChange(e.target.value)}
                 className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
                   errors.email
-                    ? 'border-red-500 focus:ring-red-500'
-                    : 'border-neutral-200 focus:border-neutral-400 focus:ring-2 focus:ring-accent'
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-neutral-200 focus:border-neutral-400 focus:ring-2 focus:ring-accent"
                 }`}
                 placeholder="your@email.com"
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div>
@@ -90,13 +99,13 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
               <div className="relative">
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => handlePasswordChange(e.target.value)}
                   className={`w-full px-4 py-2 border rounded-lg focus:outline-none ${
                     errors.password
-                      ? 'border-red-500 focus:ring-red-500'
-                      : 'border-neutral-200 focus:border-neutral-400 focus:ring-2 focus:ring-accent'
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-neutral-200 focus:border-neutral-400 focus:ring-2 focus:ring-accent"
                   }`}
                   placeholder="••••••••"
                 />
@@ -104,12 +113,18 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
                   type="button"
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-700"
                   onClick={() => setShowPassword(!showPassword)}
-                  tabIndex={-1} // чтобы кнопка не была в табе
+                  tabIndex={-1}
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
-              {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+              )}
             </div>
 
             <button
@@ -123,12 +138,14 @@ export function AuthScreen({ onLogin }: AuthScreenProps) {
                 focus:outline-none
                 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:brightness-100
               `}
-              style={{ backgroundColor: 'var(--theme-primary, #171717)' }}
+              style={{ backgroundColor: "var(--theme-primary, #171717)" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--theme-primary-dark, #0a0a0a)';
+                e.currentTarget.style.backgroundColor =
+                  "var(--theme-primary-dark, #0a0a0a)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--theme-primary, #171717)';
+                e.currentTarget.style.backgroundColor =
+                  "var(--theme-primary, #171717)";
               }}
             >
               Войти

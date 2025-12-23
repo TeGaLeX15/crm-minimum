@@ -1,4 +1,4 @@
-import { Plus, Bell, Clock, LogOut, Palette } from 'lucide-react';
+import { Plus, Bell, Clock, LogOut, Palette } from "lucide-react";
 
 interface HeaderProps {
   user: { email: string };
@@ -28,12 +28,17 @@ export function Header({
           <button
             onClick={onNewLead}
             className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
-            style={{ backgroundColor: 'var(--theme-primary, #171717)', color: '#ffffff' }}
+            style={{
+              backgroundColor: "var(--theme-primary, #171717)",
+              color: "#ffffff",
+            }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--theme-primary-dark, #0a0a0a)';
+              e.currentTarget.style.backgroundColor =
+                "var(--theme-primary-dark, #0a0a0a)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--theme-primary, #171717)';
+              e.currentTarget.style.backgroundColor =
+                "var(--theme-primary, #171717)";
             }}
           >
             <Plus className="w-4 h-4" />

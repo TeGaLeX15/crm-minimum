@@ -1,5 +1,5 @@
-import { Mail, Phone, Building2, DollarSign } from 'lucide-react';
-import type { Lead } from '../../types';
+import { Mail, Phone, Building2, DollarSign } from "lucide-react";
+import type { Lead } from "../../types";
 
 interface LeadCardProps {
   lead: Lead;
@@ -8,7 +8,7 @@ interface LeadCardProps {
 
 export function LeadCard({ lead, onEdit }: LeadCardProps) {
   const handleDragStart = (e: React.DragEvent) => {
-    e.dataTransfer.setData('leadId', lead.id);
+    e.dataTransfer.setData("leadId", lead.id);
   };
 
   return (
@@ -29,21 +29,21 @@ export function LeadCard({ lead, onEdit }: LeadCardProps) {
             <span>{lead.company}</span>
           </div>
         )}
-        
+
         {lead.email && (
           <div className="flex items-center gap-2 text-neutral-600">
             <Mail className="w-4 h-4" />
             <span className="truncate">{lead.email}</span>
           </div>
         )}
-        
+
         {lead.phone && (
           <div className="flex items-center gap-2 text-neutral-600">
             <Phone className="w-4 h-4" />
             <span>{lead.phone}</span>
           </div>
         )}
-        
+
         {lead.value && (
           <div className="flex items-center gap-2 text-neutral-900">
             <DollarSign className="w-4 h-4" />

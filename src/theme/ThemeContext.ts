@@ -1,6 +1,5 @@
-// src/theme/ThemeContext.ts
-import { createContext } from 'react';
-import { type Theme } from './themes';
+import { createContext } from "react";
+import { type Theme } from "./themes";
 
 export interface ThemeContextType {
   currentTheme: Theme;
@@ -8,4 +7,6 @@ export interface ThemeContextType {
   themes: Theme[];
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined
+);

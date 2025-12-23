@@ -1,4 +1,4 @@
-export type LeadStatus = 'new' | 'contacted' | 'qualified' | 'proposal' | 'won';
+export type LeadStatus = "new" | "contacted" | "qualified" | "proposal" | "won";
 
 export interface User {
   email: string;
@@ -25,7 +25,7 @@ export interface Reminder {
   completed: boolean;
 }
 
-export type ActivityType = 'created' | 'updated' | 'moved' | 'deleted';
+export type ActivityType = "created" | "updated" | "moved" | "deleted";
 
 export interface Activity {
   id: string;

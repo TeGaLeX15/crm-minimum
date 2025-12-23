@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SectionSeparatorProps {
   label?: string;
@@ -6,7 +6,7 @@ interface SectionSeparatorProps {
 }
 
 const SectionSeparator: React.FC<SectionSeparatorProps> = ({
-  label = 'Сепаратор, мать его',
+  label = "Сепаратор, мать его",
   onClick,
 }) => {
   return (

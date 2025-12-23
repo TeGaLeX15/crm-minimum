@@ -1,5 +1,5 @@
-import { KanbanColumn } from './KanbanColumn';
-import type { Lead, LeadStatus } from '../../types';
+import { KanbanColumn } from "./KanbanColumn";
+import type { Lead, LeadStatus } from "../../types";
 
 interface KanbanBoardProps {
   leads: Lead[];
@@ -8,18 +8,24 @@ interface KanbanBoardProps {
 }
 
 const COLUMNS: { status: LeadStatus; title: string }[] = [
-  { status: 'new', title: 'Новые' },
-  { status: 'contacted', title: 'Контакт' },
-  { status: 'qualified', title: 'Квалификация' },
-  { status: 'proposal', title: 'Предложение' },
-  { status: 'won', title: 'Закрыто' },
+  { status: "new", title: "Новые" },
+  { status: "contacted", title: "Контакт" },
+  { status: "qualified", title: "Квалификация" },
+  { status: "proposal", title: "Предложение" },
+  { status: "won", title: "Закрыто" },
 ];
 
-export function KanbanBoard({ leads, onMoveLead, onEditLead }: KanbanBoardProps) {
+export function KanbanBoard({
+  leads,
+  onMoveLead,
+  onEditLead,
+}: KanbanBoardProps) {
   return (
     <div className="flex gap-4 overflow-x-auto pb-4">
       {COLUMNS.map((column) => {
-        const columnLeads = leads.filter((lead) => lead.status === column.status);
+        const columnLeads = leads.filter(
+          (lead) => lead.status === column.status
+        );
         return (
           <KanbanColumn
             key={column.status}

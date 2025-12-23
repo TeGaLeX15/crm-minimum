@@ -1,5 +1,5 @@
-import { X, Plus, Edit2, ArrowRight, Trash2 } from 'lucide-react';
-import type { Activity } from '../../types';
+import { X, Plus, Edit2, ArrowRight, Trash2 } from "lucide-react";
+import type { Activity } from "../../types";
 
 interface ActivityHistoryProps {
   activities: Activity[];
@@ -14,10 +14,10 @@ const ACTIVITY_ICONS = {
 };
 
 const ACTIVITY_LABELS = {
-  created: 'Создан',
-  updated: 'Обновлен',
-  moved: 'Перемещен',
-  deleted: 'Удален',
+  created: "Создан",
+  updated: "Обновлен",
+  moved: "Перемещен",
+  deleted: "Удален",
 };
 
 export function ActivityHistory({ activities, onClose }: ActivityHistoryProps) {
@@ -49,22 +49,26 @@ export function ActivityHistory({ activities, onClose }: ActivityHistoryProps) {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className="text-neutral-900">{activity.leadName}</span>
+                    <span className="text-neutral-900">
+                      {activity.leadName}
+                    </span>
                     <span className="text-neutral-500">
                       {ACTIVITY_LABELS[activity.type]}
                     </span>
                   </div>
 
                   {activity.description && (
-                    <p className="text-neutral-600 mt-1">{activity.description}</p>
+                    <p className="text-neutral-600 mt-1">
+                      {activity.description}
+                    </p>
                   )}
 
                   <p className="text-neutral-400 mt-1">
-                    {new Date(activity.timestamp).toLocaleString('ru-RU', {
-                      day: 'numeric',
-                      month: 'short',
-                      hour: '2-digit',
-                      minute: '2-digit',
+                    {new Date(activity.timestamp).toLocaleString("ru-RU", {
+                      day: "numeric",
+                      month: "short",
+                      hour: "2-digit",
+                      minute: "2-digit",
                     })}
                   </p>
                 </div>

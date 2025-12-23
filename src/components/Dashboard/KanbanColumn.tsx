@@ -1,5 +1,5 @@
-import { LeadCard } from './LeadCard';
-import type { Lead, LeadStatus } from '../../types';
+import { LeadCard } from "./LeadCard";
+import type { Lead, LeadStatus } from "../../types";
 
 interface KanbanColumnProps {
   title: string;
@@ -22,7 +22,7 @@ export function KanbanColumn({
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
-    const leadId = e.dataTransfer.getData('leadId');
+    const leadId = e.dataTransfer.getData("leadId");
     if (leadId) {
       onMoveLead(leadId, status);
     }
